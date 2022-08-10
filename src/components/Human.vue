@@ -4,8 +4,14 @@
       <div v-if="isLaughing">🤣</div>
       <div v-else>😊</div>
     </div>
-    <div class="karada" v-on:click="makeLaugh">
-      <div>💪{{ body }}💪</div>
+    <div
+      class="karada"
+      @click="
+        makeLaugh();
+        changeCloth();
+      "
+    >
+      <div>💪{{ body[clothNum] }}💪</div>
     </div>
     <div class="ashi">
       <div>🦵🦵</div>
@@ -17,18 +23,27 @@
 export default {
   props: {
     body: {
-      type: String,
-      default: "👕",
+      type: [],
+      default: ["👕"],
     },
   },
   data() {
     return {
       isLaughing: false,
+      clothNum: 0,
     };
   },
   methods: {
     makeLaugh() {
       this.isLaughing = true;
+    },
+    changeCloth() {
+      const len = this.body.length;
+      if (this.clothNum < len - 1) {
+        this.clothNum++;
+      } else {
+        this.clothNum = 0;
+      }
     },
   },
 };

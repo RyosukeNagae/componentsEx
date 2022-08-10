@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <Human />
-    <Human :body="bodies[1]" />
-    <Human :body="bodies[2]" />
+    <Human :body="bodies" />
+    <Human :body="bodies" />
   </div>
   <!-- <div>
     <simple-memo bgColor="orange">オレンジ</simple-memo>
