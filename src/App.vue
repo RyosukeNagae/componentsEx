@@ -1,26 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="container">
+    <Human />
+    <Human :body="bodies[1]" />
+    <Human :body="bodies[2]" />
+  </div>
+  <!-- <div>
+    <simple-memo bgColor="orange">オレンジ</simple-memo>
+    <simple-memo bgColor="pink">ピンク</simple-memo>
+    <simple-memo bgColor="green">みどり</simple-memo>
+  </div> -->
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Human from "@/components/Human.vue";
+// import SimpleMemo from "./components/SimpleMemo.vue";
 
 export default {
-  name: "App",
   components: {
-    HelloWorld,
+    Human,
+    // SimpleMemo,
+  },
+  data() {
+    return {
+      bodies: ["👕", "👗", "🧥"],
+    };
   },
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.container {
+  display: flex;
 }
 </style>
